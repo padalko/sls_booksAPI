@@ -23,5 +23,13 @@
     "serverless.yml",
     "test/fixtures/**"
   ],
-  "words": ["Uuid", "editorconfig", "Changelogs", "uuidv"]
+  "words": [
+    "Uuid",
+    "editorconfig",
+    "Changelogs",
+    "uuidv",
+    "Garsia",
+    "Rayela",
+    "Cortazar"
+  ]
 }
