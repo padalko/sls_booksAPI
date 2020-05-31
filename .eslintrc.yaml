@@ -2,33 +2,24 @@ env:
   es6: true
   node: true
 plugins:
-  - "@typescript-eslint"
   - functional
 overrides:
   - env:
       jest: true
     files:
-      - __mocks__/**/*.ts
-      - src/**/*.spec.ts
-      - test/**/*.ts
+      - __mocks__/**/*.js
+      - src/**/*.spec.js
+      - test/**/*.js
     rules:
-      "functional/no-return-void": off
-      "functional/functional-parameters": off
-      "functional/no-expression-statement": off
-      "@typescript-eslint/no-magic-numbers": off
-      "@typescript-eslint/typedef": warn
-      "max-lines": 0
-      "max-lines-per-function": off
-parser: "@typescript-eslint/parser"
+      'max-lines': 0
+      'max-lines-per-function': off
 parserOptions:
   ecmaVersion: 10
   project: tsconfig.json
   sourceType: module
 extends:
-  - "eslint:recommended"
-  - "plugin:@typescript-eslint/eslint-recommended"
-  - "plugin:@typescript-eslint/recommended"
-  - "plugin:functional/external-recommended"
-  - "plugin:functional/recommended"
+  - 'eslint:recommended'
+  - 'airbnb-base'
 rules:
-  functional/no-try-statement: off
+  no-console: off
+  import/no-extraneous-dependencies: off
