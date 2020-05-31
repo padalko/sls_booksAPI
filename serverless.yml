@@ -1,0 +1,48 @@
+app: books-manager
+service: library-api
+org: vadimepadalko
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+
+plugins:
+  - serverless-offline
+
+functions:
+  getBookById:
+    handler: src/api/books.get
+    events:
+      - http:
+          path: /book/{bookUuid}
+          method: get
+
+  getAllbooks:
+    handler: src/api/books.list
+    events:
+      - http:
+          path: /books
+          method: get
+
+  createBook:
+    handler: src/api/books.create
+    events:
+      - http:
+          path: book/add
+          method: post
+
+  updateBookById:
+    handler: src/api/books.update
+    events:
+      - http:
+          path: book/{bookUuid}/update
+          method: post
+
+  deleteBookById:
+    handler: src/api/books.update
+    events:
+      - http:
+          path: book/{bookUuid}/delete
+          method: post

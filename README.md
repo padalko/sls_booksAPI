@@ -9,3 +9,6 @@
 2. Install global and project dependencies:
     - `npm i -g serverless`
     - `npm i`
+    - create **application** `books-manager` at [Serverless Dashboard](https://dashboard.serverless.com/)
+    
+3. Deploy application using by using serverless: `sls deploy`
