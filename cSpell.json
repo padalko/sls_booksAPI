@@ -19,7 +19,9 @@
     "node_modules/**",
     "scripts/**/*.sh",
     "src/**/*.snap",
-    "src/docs/*.html"
+    "src/docs/*.html",
+    "serverless.yml",
+    "test/fixtures/**"
   ],
-  "words": ["filmdb", "editorconfig", "Changelogs"]
+  "words": ["Uuid", "editorconfig", "Changelogs", "uuidv"]
 }
