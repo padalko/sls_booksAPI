@@ -1,0 +1,25 @@
+{
+  "language": "en-US",
+  "version": "0.1",
+  "dictionaries": [],
+  "flagWords": [],
+  "ignorePaths": [
+    ".eslintrc",
+    ".eslintignore",
+    ".gitignore",
+    ".prettierignore",
+    "*.config.js",
+    "*.json",
+    "*.log",
+    "*.yaml",
+    "**/*.json",
+    ".vscode",
+    "coverage/**",
+    "lib/**",
+    "node_modules/**",
+    "scripts/**/*.sh",
+    "src/**/*.snap",
+    "src/docs/*.html"
+  ],
+  "words": ["filmdb", "editorconfig", "Changelogs"]
+}
