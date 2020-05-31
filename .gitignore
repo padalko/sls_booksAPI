@@ -11,7 +11,7 @@ yarn-error.log*
 # Cache files
 .cache
 *.cache
-./.idea
+.idea
 
 # Runtime environment supports npm an Yarn lockfiles. A decision was made to use
 # npm, therefore all other lock files are ignored.
@@ -57,5 +57,4 @@ coverage
 .serverless
 
 *.js.map
-*.js
 !*.config.js

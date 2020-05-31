@@ -1,0 +1,17 @@
+- name: getAllBooks endpoint returns 200.
+  endpoint:
+    path: /books
+    method: GET
+    function: getAllBooks
+  response:
+    status: 200
+
+- name: getBookById endpoint returns 200 and ID in body matches.
+  endpoint:
+    path: /book/123
+    method: GET
+    function: getBookById
+  response:
+    status: 200
+    message:
+      uuid: 123
