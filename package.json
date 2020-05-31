@@ -48,5 +48,10 @@
     "lint": "eslint \"**/*.js\"",
     "lint:fix": "eslint --fix --resolve-plugins-relative-to \"./node_modules/eslint-plugin-functional\" \"**/*.js\"",
     "spellcheck": "cspell '**/*'"
+  },
+  "dependencies": {
+    "@hapi/joi": "^14.5.0",
+    "lodash": "^4.17.15",
+    "uuid": "^8.1.0"
   }
 }

@@ -11,6 +11,7 @@ yarn-error.log*
 # Cache files
 .cache
 *.cache
+.eslintcache
 .idea
 
 # Runtime environment supports npm an Yarn lockfiles. A decision was made to use
