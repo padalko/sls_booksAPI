@@ -1,0 +1,50 @@
+{
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "name": "sls-books-api",
+  "version": "0.0.0-development",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitizen": "^4.0.4",
+    "cspell": "^4.0.57",
+    "eslint": "^6.8.0",
+    "eslint-plugin-functional": "^3.0.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.7",
+    "prettier": "^2.0.5"
+  },
+  "engines": {
+    "node": "12",
+    "npm": ">=6.14.4"
+  },
+  "lint-staged": {
+    "*.{js,json,md,ts,yml,yaml}": "prettier --write",
+    "*.js": "eslint --cache --fix"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:padalko/sls_booksAPI.git"
+  },
+  "scripts": {
+    "cz": "git-cz",
+    "cz:retry": "git-cz --retry",
+    "format": "prettier --check \"**/*.{js,json,md,ts,yml,yaml}\"",
+    "format:fix": "prettier --write \"**/*.{js,json,md,ts,yml,yaml}\"",
+    "lint": "eslint \"**/*.js\"",
+    "lint:fix": "eslint --fix --resolve-plugins-relative-to \"./node_modules/eslint-plugin-functional\" \"**/*.js\"",
+    "spellcheck": "cspell '**/*'"
+  }
+}
