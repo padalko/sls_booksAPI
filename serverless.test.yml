@@ -6,12 +6,27 @@
   response:
     status: 200
 
-- name: getBookById endpoint returns 200 and ID in body matches.
+- name: getBookById endpoint returns 400 if invalid id provided.
   endpoint:
     path: /book/123
     method: GET
     function: getBookById
   response:
-    status: 200
-    message:
-      uuid: 123
+    status: 400
+    body:
+      '{"ValidationError":{"message":"\"bookUuid\" must be a valid
+      GUID","data":["\"bookUuid\" must be a valid GUID"]}}'
+
+- name: createBook endpoint returns 201.
+  endpoint:
+    path: /book/add
+    method: POST
+    request:
+      body:
+        authorName: Ernest
+        name: Farewell
+        releaseDate: 1049155200000
+
+    function: createBook
+  response:
+    status: 201

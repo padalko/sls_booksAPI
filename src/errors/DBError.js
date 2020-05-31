@@ -1,14 +1,14 @@
-class ValidationError extends Error {
+class DBError extends Error {
   constructor({ message, data }) {
     super(message);
-    this.name = 'Validation Error';
-    this.statusCode = 400;
+    this.name = 'Database Error';
+    this.statusCode = 500;
     this.data = data;
   }
 
   getErrorMessage() {
     return JSON.stringify({
-      ValidationError: {
+      InternalServerError: {
         message: this.message,
         data: this.data,
       },
@@ -16,4 +16,4 @@ class ValidationError extends Error {
   }
 }
 
-module.exports = ValidationError;
+module.exports = DBError;

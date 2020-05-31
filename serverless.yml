@@ -2,14 +2,41 @@ app: books-manager
 service: library-api
 org: vadimepadalko
 
+custom:
+  dynamodb:
+    booksTable: ${self:service}-booksTable-${self:provider.stage}
+    stages:
+      - dev
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
+    migration:
+      dir: offline_migrations
+
 provider:
   name: aws
   runtime: nodejs12.x
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
+  environment:
+    DYNAMODB_BOOKS_TABLE: ${self:custom.dynamodb.booksTable}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        'arn:aws:dynamodb:${opt:region,
+        self:provider.region}:*:table/${self:custom.dynamodb.booksTable}'
 
 plugins:
   - serverless-offline
+  - serverless-dynamodb-local
 
 functions:
   getBookById:
@@ -41,8 +68,25 @@ functions:
           method: post
 
   deleteBookById:
-    handler: src/api/books.update
+    handler: src/api/books.delete
     events:
       - http:
           path: book/{bookUuid}/delete
           method: post
+
+resources:
+  Resources:
+    TodosDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        TableName: ${self:custom.dynamodb.booksTable}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

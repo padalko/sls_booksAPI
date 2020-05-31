@@ -3,7 +3,7 @@ const Joi = require('@hapi/joi');
 const getById = Joi.object()
   .keys({
     pathParameters: {
-      bookUuid: Joi.number().min(10).required(),
+      bookUuid: Joi.string().guid({ version: 'uuidv4' }).required(),
     },
   })
   .unknown();
@@ -11,12 +11,12 @@ const getById = Joi.object()
 const updateById = Joi.object()
   .keys({
     pathParameters: {
-      bookUuid: Joi.number().min(10).required(),
+      bookUuid: Joi.string().guid({ version: 'uuidv4' }).required(),
     },
     body: {
       authorName: Joi.string().required(),
       name: Joi.string().required(),
-      uuid: Joi.string().required(),
+      uuid: Joi.string().guid({ version: 'uuidv4' }),
       releaseDate: Joi.number().required(),
     },
   })
@@ -27,7 +27,6 @@ const create = Joi.object()
     body: {
       authorName: Joi.string().required(),
       name: Joi.string().required(),
-      uuid: Joi.string().required(),
       releaseDate: Joi.number().required(),
     },
   })
@@ -36,7 +35,7 @@ const create = Joi.object()
 const deleteBookById = Joi.object()
   .keys({
     pathParameters: {
-      bookUuid: Joi.number().min(10).required(),
+      bookUuid: Joi.string().guid({ version: 'uuidv4' }).required(),
     },
   })
   .unknown();

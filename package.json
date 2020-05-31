@@ -12,6 +12,7 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "aws-sdk": "^2.686.0",
+    "aws-sdk-mock": "^5.1.0",
     "commitizen": "^4.0.4",
     "cspell": "^4.0.57",
     "eslint": "^6.8.0",
@@ -19,6 +20,8 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.1.7",
     "prettier": "^2.0.5",
+    "serverless-dynamodb-local": "^0.2.39",
+    "serverless-mocha": "^1.12.0",
     "serverless-offline": "^6.3.0"
   },
   "engines": {
