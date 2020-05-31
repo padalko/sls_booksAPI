@@ -2,9 +2,7 @@ const uuid = require('uuid');
 
 class Book {
   constructor(params) {
-    const {
-      id, name, authorName, releaseDate,
-    } = params;
+    const { id, name, authorName, releaseDate } = params;
     this.id = id;
     this.name = name;
     this.releaseDate = releaseDate;
